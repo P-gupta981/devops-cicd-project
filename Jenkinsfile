@@ -14,7 +14,7 @@ pipeline {
                sh 'docker build -t priyagupt/devops-app:latest .' 
             }
         }
-
+      */
         stage('Login Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
