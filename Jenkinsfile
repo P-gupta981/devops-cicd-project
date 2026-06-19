@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t devops-app .'
+               sh 'docker build -t priyagupt/devops-app:latest .' 
             }
         }
 
@@ -24,8 +24,8 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                sh 'docker tag devops-app yourdockerhub/devops-app'
-                sh 'docker push yourdockerhub/devops-app'
+            sh 'docker tag devops-app priyagupt/devops-app:latest'
+               sh 'docker push priyagupt/devops-app:latest'
             }
         }
 
