@@ -8,13 +8,13 @@ pipeline {
             }
         }
 
-         /*
+         
         stage('Build Docker Image') {
             steps {
                sh 'docker build -t priyagupt/devops-app:latest .' 
             }
         }
-      */
+      
         stage('Login Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
@@ -30,11 +30,13 @@ pipeline {
             }
         }
 
+      */  
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl apply -f deployment.yml'
                 sh 'kubectl apply -f service.yml'
             }
         }
+     */
     }
 }
