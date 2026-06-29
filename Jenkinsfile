@@ -14,6 +14,12 @@ pipeline {
                sh 'docker build -t priyagupt/devops-app:latest .' 
             }
         }
+
+        stage('Trivy Image Scan') {
+    steps {
+        sh 'trivy image --severity HIGH,CRITICAL priyagupt/devops-app:latest'
+    }
+}
       
         stage('Login Docker Hub') {
             steps {
